@@ -1,0 +1,129 @@
+<html lang="ja">
+<head>
+	<style>
+		.block {
+			width: 100px; height: 100px; background-color: #000000;
+		}
+	</style>
+	<script src="anim.js"></script>
+</head>
+<body>
+
+	<h1>sample</h1>
+
+	<section>
+		<h2>opacity</h2>
+
+		<div id="opacity">
+			<input type="button" value="animate"/>
+			<div class="block"></div>
+		</div>
+		<script>
+			(function() {
+				var element = document.getElementById('opacity'),
+					button = element.querySelector('input'),
+					block = element.querySelector('.block');
+
+				button.addEventListener('click', function() {
+					anim(block)
+						.transit(1000, {opacity: 0, ease: 'ease-in'}, function() {
+							alert('callback 1');
+						})
+						.transit(3000, {opacity: 1, ease: 'ease-out'}, function() {
+							alert('callback 2');
+						});
+				}, false);
+			})();
+		</script>
+
+		<div id="translate">
+			<input type="button" value="animate"/>
+			<div class="block"></div>
+		</div>
+		<script>
+			(function() {
+				var element = document.getElementById('translate'),
+					button = element.querySelector('input'),
+					block = element.querySelector('.block');
+
+				button.addEventListener('click', function() {
+					anim(block)
+						.transit(1000, {translate: {x: 100, y: 300}, ease: 'ease-in'}, function() {
+							alert('callback 1');
+						})
+						.transit(3000, {ease: 'ease-out'}, function() {
+							alert('callback 2');
+						});
+				}, false);
+			})();
+		</script>
+
+		<div id="scale">
+			<input type="button" value="animate"/>
+			<div class="block"></div>
+		</div>
+		<script>
+			(function() {
+				var element = document.getElementById('scale'),
+					button = element.querySelector('input'),
+					block = element.querySelector('.block');
+
+				button.addEventListener('click', function() {
+					anim(block)
+						.transit(1000, {scale: {x: 2, y: 3}, ease: 'ease-in'}, function() {
+							alert('callback 1');
+						})
+						.transit(3000, {ease: 'ease-out'}, function() {
+							alert('callback 2');
+						});
+				}, false);
+			})();
+		</script>
+
+		<div id="rotate">
+			<input type="button" value="animate"/>
+			<div class="block"></div>
+		</div>
+		<script>
+			(function() {
+				var element = document.getElementById('rotate'),
+					button = element.querySelector('input'),
+					block = element.querySelector('.block');
+
+				button.addEventListener('click', function() {
+					anim(block)
+						.transit(1000, {rotate: 90, ease: 'ease-in'}, function() {
+							alert('callback 1');
+						})
+						.transit(3000, {ease: 'ease-out'}, function() {
+							alert('callback 2');
+						});
+				}, false);
+			})();
+		</script>
+
+		<div id="skew">
+			<input type="button" value="animate"/>
+			<div class="block"></div>
+		</div>
+		<script>
+			(function() {
+				var element = document.getElementById('skew'),
+					button = element.querySelector('input'),
+					block = element.querySelector('.block');
+
+				button.addEventListener('click', function() {
+					anim(block)
+						.transit(1000, {skew: {x: 90, y: 90}, ease: 'ease-in'}, function() {
+							alert('callback 1');
+						})
+						.transit(3000, {ease: 'ease-out'}, function() {
+							alert('callback 2');
+						});
+				}, false);
+			})();
+		</script>
+
+	</section>
+</body>
+</html>
